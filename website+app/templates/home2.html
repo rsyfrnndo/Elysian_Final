@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysian's Portal</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100%;
+        }
+        .left, .right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left {
+            flex: 2;
+            max-width: 40%;
+            flex-direction: column;
+            background-color: #0076d6;
+        }
+        .left h1 {
+            color: white;
+            margin-bottom: -10px;
+        }
+        .left h2 {
+            color: #0076d6;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 10px 15px 10px 15px;
+        }
+        .polaroid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+        .polaroid {
+            width: 150px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px #2b88e8;
+            text-align: center;
+        }
+        .polaroid img {
+            width: 100%;
+            height: auto;
+        }
+        .polaroid .nama {
+            color: #0076d6;
+            font-weight: bold;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .polaroid .nama:hover {
+            background-color: #0076d6;
+            color: white;
+            border-radius: 10px;
+            padding: 5px;
+            font-size: 0.9rem;
+        }
+        .polaroid .nama::after {
+            content: attr(data-username); /* Menggunakan atribut data-username */
+            display: none;
+            color: white;
+        }
+        .polaroid .nama:hover::after {
+            display: inline;
+        }
+        .polaroid .nama:hover span {
+            display: none;
+        }
+        .specialization {
+            background-color: #0076d6;
+            color: white;
+            border-radius: 10px;
+            padding: 5px;
+            font-size: 0.9rem;
+        }
+        .right {
+            flex: 3;
+            flex-direction: column;
+            background-color: #fff;
+            font-size: 2rem;
+        }
+        .right .intro {
+            border: 5px solid #0076d6;
+            border-radius: 20px;
+            padding: 20px;
+            padding-bottom: 0px;
+            width: 80%;
+        }
+        .right h1 {
+            margin-top: 5px;
+            color: #0076d6;
+            text-align: center;
+        }
+        .right h2 {
+            text-align: center;
+            color: white;
+            background-color: #0076d6;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin-bottom: 0px;
+            padding: 10px 15px 10px 15px;
+        }
+        .right .button {
+            justify-content: center;
+            text-align: center;
+            margin-top: 5%;
+            width: 80%;
+        }
+        .right .button button {
+            background-color: #2b88e8;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            width: 35%;
+            box-shadow: 5px 10px #0076d6;
+        }
+        .right .button button:hover {
+            border: 3px solid #2b88e8;
+            background-color: white;
+            color: #2b88e8;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left, .right {
+                max-width: 100%;
+                height: auto;
+            }
+            .left {
+                max-width: 100%;
+                padding: 20px;
+            }
+            .polaroid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Greeting, Thinkers!</h1>
+            <h2>Elysian here.</h2>
+            <div class="polaroid-container">
+                <div class="polaroid">
+                    <img src="{{ url_for('static', filename='rasya.jpg') }}" alt="rasya">
+                    <a href="https://instagram.com/rsyfrnndo" class="nama" data-username="@rsyfrnndo">
+                        <span>Rasya Fernando</span>
+                    </a>
+                    <div class="specialization">Electrical and Mechanical Engineer</div>
+                </div>
+                <div class="polaroid">
+                    <img src="{{ url_for('static', filename='fakhri.jpg') }}" alt="fakhri">
+                    <a href="https://instagram.com/fakhriaall" class="nama" data-username="@fakhriaall">
+                        <span>Ahmad Fakhri</span>
+                    </a>
+                    <div class="specialization">IoT Engineer</div>
+                </div>
+                <div class="polaroid">
+                    <img src="{{ url_for('static', filename='habibah.png') }}" alt="habibah">
+                    <a href="https://instagram.com/h.bbh_02" class="nama" data-username="@h.bbh_02">
+                        <span>Habibah Hisani</span>
+                    </a>
+                    <div class="specialization">Data Analyst</div>
+                </div>
+                <div class="polaroid">
+                    <img src="{{ url_for('static', filename='sipa.jpg') }}" alt="siti">
+                    <a href="https://instagram.com/stilfva" class="nama" data-username="@stilfva">
+                        <span>Siti Lavifa</span>
+                    </a>
+                    <div class="specialization">Hardware Designer</div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="intro">
+                <h2>Introducing, Elysian's</h2>
+                <h1>Micro Water Treatment</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
